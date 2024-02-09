@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #eee;
+  color: #183339;
+}
+
+header {
+  background-color: #009688;
+  background-image: url("https://www.transparenttextures.com/patterns/scribble-light.png");
+  padding: 16px;
+  text-align: center;
+}
+
+header h1 {
+  color: #eee;
+}
+
+header span {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+footer {
+  background-color: #009688;
+  background-image: url("https://www.transparenttextures.com/patterns/scribble-light.png");
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  padding: 10px;
+}
+
+footer p {
+  color: #eee;
+}
+
+.RegLogMenu {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 20px;
+}
+
+.RegLogMenu p {
+  padding: 25px 20px;
+}
+
+.RegLogMenu form {
+  margin-top: 50px;
+}
+
+.RegLogMenu input {
+  height: 35px;
+  width: 200px;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.RegLogMenu button {
+  height: 40px;
+  width: 200px;
+  border: 2px solid #009688;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#login {
+  background-color: #009688;
+  color: #fff;
+}
+
+#login:hover {
+  background-color: #eee;
+  color: #009688;
+}
+
+#register {
+  background-color: #eee;
+  color: #009688;
+}
+
+#register:hover {
+  background-color: #009688;
+  color: #fff;
+}
