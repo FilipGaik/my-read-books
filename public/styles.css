@@ -76,22 +76,22 @@ footer p {
   font-size: 16px;
 }
 
-#login {
+.login {
   background-color: #009688;
   color: #fff;
 }
 
-#login:hover {
+.login:hover {
   background-color: #eee;
   color: #009688;
 }
 
-#register {
+.register {
   background-color: #eee;
   color: #009688;
 }
 
-#register:hover {
+.register:hover {
   background-color: #009688;
   color: #fff;
 }
