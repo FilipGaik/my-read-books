@@ -20,7 +20,10 @@ export default function RegistrationLoginMenu(props) {
         <br />
         <input type="password" name="password" placeholder="Password" required onChange={changeHandler} value={user.password}></input>
         <br />
-        <button type="submit" className="login">Log in</button>
+        <button type="submit" onClick={(e) => {
+          props.handleLogin(user);
+          e.preventDefault();
+        }} className="login">Log in</button>
         <br />
         <button type="submit" onClick={(e) => {
           props.handleRegister(user);
