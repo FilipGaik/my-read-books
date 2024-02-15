@@ -8,6 +8,30 @@ import axios from "axios";
 function App() {
   const [loggedUser, setLoggedUser] = useState("");
 
+  async function handleLogin(user) {
+    if(user.email === "" || user.password === "") {
+      alert("Please fulfill both fields.");
+    } else {
+      try {
+        const response = await axios.post("http://localhost:5000/login", user, {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        });
+
+        if(response.data === "NOK") {
+          alert("Email not registered. Please register first.");
+        } else if(response.data === "NOK password") {
+          alert("Wrong password, please try again.");
+        } else {
+          setLoggedUser(user.email);
+        }
+      } catch(error) {
+        console.log(error);
+      }
+    }
+  }
+
   async function handleRegister(user) {
     if(user.email === "" || user.password === "") {
       alert("Please fulfill both fields.");
@@ -37,7 +61,7 @@ function App() {
   return (
     <div>
       <Header />
-      {loggedUser === "" && <RegistrationLoginMenu handleRegister={handleRegister} />}
+      {loggedUser === "" && <RegistrationLoginMenu handleRegister={handleRegister} handleLogin={handleLogin} />}
       {loggedUser !== "" && <Books handleLogout={handleLogout} />}
       <Footer />
     </div>
