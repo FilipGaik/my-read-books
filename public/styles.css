@@ -12,6 +12,11 @@ html {
   color: #183339;
 }
 
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
 header {
   background-color: #009688;
   background-image: url("https://www.transparenttextures.com/patterns/scribble-light.png");
@@ -48,14 +53,11 @@ footer p {
   text-align: center;
   font-size: 24px;
   padding-top: 20px;
+  padding-bottom: 2.5rem;
 }
 
 .RegLogMenu p {
   padding: 25px 20px;
-}
-
-.RegLogMenu form {
-  margin-top: 50px;
 }
 
 .RegLogMenu input {
