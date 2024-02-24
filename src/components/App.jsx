@@ -10,6 +10,7 @@ import axios from "axios";
 export default function App() {
   const [loggedUser, setLoggedUser] = useState("");
   const [books, setBooks] = useState([]);
+  const [updatedDescription, setUpdatedDescription] = useState("");
 
   async function handleLogin(user) {
     if(user.email === "" || user.password === "") {
@@ -97,11 +98,40 @@ export default function App() {
     }
   }
 
+  function updateDescription(e) {
+    setUpdatedDescription(document.getElementById(e.target.id).value);
+  }
+
+  async function saveUpdatedDescription(e) {
+    const id = e.target.id.slice(4);
+    document.getElementById("paragraph" + id).removeAttribute("hidden");
+    document.getElementById("edit" + id).removeAttribute("hidden");
+    document.getElementById("input" + id).setAttribute("hidden", true);
+    document.getElementById("br" + id).setAttribute("hidden", true);
+    document.getElementById("save" + id).setAttribute("hidden", true);
+
+    try {
+      const response = await axios.post("http://localhost:5000/updateDescription", {id: id, description: updatedDescription}, {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        });
+
+      if(response.data === "OK") {
+        alert("Description updated!");
+      }
+
+      getBooks(loggedUser);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div>
       <Header />
       {loggedUser === "" && <RegistrationLoginMenu handleRegister={handleRegister} handleLogin={handleLogin} />}
-      {loggedUser !== "" && <div><Logout handleLogout={handleLogout} />{books.map(book => <Book key={book.id} title={book.title} author={book.author} description={book.description} id={book.id} />)}<Form addNewBook={addNewBook} /></div>}
+      {loggedUser !== "" && <div><Logout handleLogout={handleLogout} />{books.map(book => <Book key={book.id} title={book.title} author={book.author} description={book.description} id={book.id} saveUpdatedDescription={saveUpdatedDescription} updateDescription={updateDescription} setUpdatedDescription={setUpdatedDescription} />)}<Form addNewBook={addNewBook} /></div>}
       <Footer />
     </div>
   );
