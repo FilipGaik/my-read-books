@@ -12,15 +12,15 @@ export default function Form(props) {
   return (
     <div className="RegLogMenu">
       <form>
-        <label for="title">Title:</label>
+        <label htmlFor="title">Title:</label>
         <br />
         <input id="title" type="text" name="title" placeholder="Title" required onChange={changeBookHandler} value={book.title}></input>
         <br />
-        <label for="author">Author:</label>
+        <label htmlFor="author">Author:</label>
         <br />
         <input id="author" type="text" name="author" placeholder="Author" required onChange={changeBookHandler} value={book.author}></input>
         <br />
-        <label for="description">Description:</label>
+        <label htmlFor="description">Description:</label>
         <br />
         <textarea id="description" name="description" rows="8" cols="50" placeholder="Description" required onChange={changeBookHandler} value={book.description}></textarea>
         <br />
