@@ -49,6 +49,7 @@ export default function App() {
         });
 
         if(response.data === "OK") {
+          setBooks([]);
           setLoggedUser(user.email);
         } else {
           alert("Email already exists. Try logging in.");
