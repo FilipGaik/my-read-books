@@ -132,7 +132,16 @@ export default function App() {
     <div>
       <Header />
       {loggedUser === "" && <RegistrationLoginMenu handleRegister={handleRegister} handleLogin={handleLogin} />}
-      {loggedUser !== "" && <div><Logout handleLogout={handleLogout} />{books.map(book => <Book key={book.id} title={book.title} author={book.author} description={book.description} id={book.id} saveUpdatedDescription={saveUpdatedDescription} updateDescription={updateDescription} setUpdatedDescription={setUpdatedDescription} />)}<Form addNewBook={addNewBook} /></div>}
+      {loggedUser !== "" && 
+        <div>
+          <Logout handleLogout={handleLogout} />
+          {books.map(book => 
+            <Book key={book.id} title={book.title} author={book.author} description={book.description} id={book.id} 
+              saveUpdatedDescription={saveUpdatedDescription} updateDescription={updateDescription} setUpdatedDescription={setUpdatedDescription} />)
+          }
+          <Form addNewBook={addNewBook} />
+        </div>
+      }
       <Footer />
     </div>
   );
